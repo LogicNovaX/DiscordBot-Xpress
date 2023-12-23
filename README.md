@@ -22,15 +22,15 @@ To get started with DiscordBot-Xpress, follow these steps:
 4. Customize the bot by adding your own commands and events in the respective folders
 5. Run the bot using `node index.js` or `npm start` command
 
-For more detailed instructions and examples, please refer to the [documentation](https://github.com/logicnovax/your-repo/wiki)
+For more detailed instructions and examples, please refer to the [documentation](https://github.com/logicnovax/DiscordBot-Xpress/wiki)
 
 ## Contributing
 
-Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Make sure to follow the [Code Of Conduct](https://github.com/logicnovax/your-repo/blob/main/CODE_OF_CONDUCT.md)
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Make sure to follow the [Code Of Conduct](https://github.com/logicnovax/DiscordBot-Xpress/blob/main/CODE_OF_CONDUCT.md)
 
 ## License
 
-This project is licensed under the **MIT License**. See the [LICENSE](https://github.com/logicnovax/your-repo/blob/main/LICENSE) file for more details
+This project is licensed under the **MIT License**. See the [LICENSE](https://github.com/logicnovax/DiscordBot-Xpress/blob/main/LICENSE) file for more details
 
 ## Contact
 
