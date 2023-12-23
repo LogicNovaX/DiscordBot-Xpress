@@ -34,4 +34,4 @@ This project is licensed under the **MIT License**. See the [LICENSE](https://gi
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to contact the project maintainer at [xyronsdesk@gmail.com](xyronsdesk@gmail.com)# DiscordBot-Xpress
+If you have any questions or need further assistance, feel free to contact the project maintainer at [xyronsdesk@gmail.com](xyronsdesk@gmail.com) DiscordBot-Xpress
