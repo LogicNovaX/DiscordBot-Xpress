@@ -12,7 +12,7 @@
 - Example commands and events included as a starting point
 - Support for interacting with the Discord API using the powerful Discord.js library
 
-  ## Requirements
+## Requirements
 ### Packages:
 - **chalk** v2.4.2
 - **discord.js** v^14.13.0
@@ -30,12 +30,15 @@
 To get started with DiscordBot-Xpress, follow these steps:
 
 1. Clone or download the repository to your local machine
-2. Install the required dependencies by running `npm install` in the project directory
+2. Install the required dependencies by running `npm install chalk@2.4.2 discord.js@latest dotenv mongoose` in the project directory
 3. Fill in the `config.js` and enter your bot token and other configuration details or use env like it said
 4. Customize the bot by adding your own commands and events in the respective folders
-5. Run the bot using `node index.js` command
+5. You can now run the bot by using `node index.js` command
 
 For more detailed instructions and examples, please refer to the [documentation](https://github.com/logicnovax/DiscordBot-Xpress/wiki)
+
+> **Important**
+> Sharing your Discord bot's token to anyone is a **very risky** move since you'll **allow them** to **use your bot**. This is also a dangerous move for the MongoDB database, we don't recommend you to use any public URIs or sharing your own database connection URL
 
 ## Contributing
 
