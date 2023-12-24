@@ -1,7 +1,7 @@
-const { ChannelType, Message } = require("discord.js");
+const { ChannelType, Message, EmbedBuilder } = require("discord.js");
 const config = require("../../config");
 const { log } = require("../../functions-utils");
-const GuildSchema = require("../../schemas/GuildSchema");
+const GuildSchema = require("../../models/guildSchema");
 const ExtendedClient = require("../../class/ExtendedClient");
 
 const cooldown = new Map();
@@ -50,29 +50,45 @@ module.exports = {
           command.structure?.permissions &&
           !message.member.permissions.has(command.structure?.permissions)
         ) {
-          await message.reply({
-            content:
-              config.messageSettings.notHasPermissionMessage !== undefined &&
-              config.messageSettings.notHasPermissionMessage !== null &&
-              config.messageSettings.notHasPermissionMessage !== ""
-                ? config.messageSettings.notHasPermissionMessage
-                : "You currently don't have permission to use this command",
-          });
+          const noPermissions = config.messageSettings.notHasPermissionMessage !== undefined &&
+          config.messageSettings.notHasPermissionMessage !== null &&
+          config.messageSettings.notHasPermissionMessage !== ""
+          ? config.messageSettings.notHasPermissionMessage
+          : "Insufficient permissions to access this category!";
+          const embed = new EmbedBuilder()
+            .setColor('#00aaff')
+            .setAuthor({ name: 'BotName', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024'})
+            .setTitle("New Error!")
+            .setDescription("> An Error has Occurred!")
+            .addFields({
+              name: "Error Comment",
+              value: "```diff\n- " + noPermissions + "```", 
+            })
+          .setFooter({ text: 'Made By: LogicNovaX', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024' });
 
-          return;
+          return message.channel.send({ embeds: [embed] });
         }
 
         if (command.structure?.developers) {
           if (!config.users.developers.includes(message.author.id)) {
             setTimeout(async () => {
-              await message.reply({
-                content:
-                  config.messageSettings.developerMessage !== undefined &&
-                  config.messageSettings.developerMessage !== null &&
-                  config.messageSettings.developerMessage !== ""
-                    ? config.messageSettings.developerMessage
-                    : "Your not authorized nor the developer of this bot. You cannot use this command",
-              });
+              const developers =  config.messageSettings.developerMessage !== undefined &&
+              config.messageSettings.developerMessage !== null &&
+              config.messageSettings.developerMessage !== ""
+              ? config.messageSettings.developerMessage
+              : "Insufficient permissions to access this category!";
+              const embed = new EmbedBuilder()
+                .setColor('#00aaff')
+                .setAuthor({ name: 'BotName', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024'})
+                .setTitle("New Error!")
+                .setDescription("> An Error has Occurred!")
+                .addFields({
+                  name: "Error Comment",
+                  value: "```diff\n- " + developers + "```", 
+                })
+              .setFooter({ text: 'Made By: LogicNovaX', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024' });
+
+              await message.channel.send({ embeds: [embed] });
             }, 5 * 1000);
           }
 
@@ -80,16 +96,24 @@ module.exports = {
         }
 
         if (command.structure?.nsfw && !message.channel.nsfw) {
-          await message.reply({
-            content:
-              config.messageSettings.nsfwMessage !== undefined &&
-              config.messageSettings.nsfwMessage !== null &&
-              config.messageSettings.nsfwMessage !== ""
-                ? config.messageSettings.nsfwMessage
-                : "The current channel your in is not an NSFW Channel",
-          });
+          const nsfwChannel = config.messageSettings.nsfwMessage !== undefined &&
+            config.messageSettings.nsfwMessage !== null &&
+            config.messageSettings.nsfwMessage !== ""
+            ? config.messageSettings.nsfwMessage
+            : "This channel isn't NSFW marked!";
 
-          return;
+          const embed = new EmbedBuilder()
+            .setColor('#00aaff')
+            .setAuthor({ name: 'BotName', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024'})
+            .setTitle("New Error!")
+            .setDescription("> An Error has Occurred!")
+            .addFields({
+              name: "Error Comment",
+              value: "```diff\n- " + nsfwChannel + "```", 
+            })
+          .setFooter({ text: 'Made By: LogicNovaX', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024' });
+
+          return message.channel.send({ embeds: [embed] });
         }
 
         if (command.structure?.cooldown) {
@@ -117,16 +141,24 @@ module.exports = {
             let data = cooldown.get(message.author.id);
 
             if (data.some((v) => v === commandInput)) {
-              await message.reply({
-                content:
-                  config.messageSettings.cooldownMessage !== undefined &&
-                  config.messageSettings.cooldownMessage !== null &&
-                  config.messageSettings.cooldownMessage !== ""
-                    ? config.messageSettings.cooldownMessage
-                    : "WOOOH, Budddy slow down. You're going to fast with this command",
-              });
+              const cooldownMessage = config.messageSettings.cooldownMessage !== undefined &&
+                config.messageSettings.cooldownMessage !== null &&
+                config.messageSettings.cooldownMessage !== ""
+                ? config.messageSettings.cooldownMessage
+                : "Wooh buudy, Cooldown is enabled!";
 
-              return;
+              const embed = new EmbedBuilder()
+                .setColor('#00aaff')
+            .setAuthor({ name: 'BotName', iconURL: 'https://cdn.discordapp.com/avatars/118810637742.8733992/0d32bcf3cb3c01a3a28ab82185920213png?size=1024'})
+            .setTitle("New Error!")
+            .setDescription("> An Error has Occurred!")
+            .addFields({
+              name: "Error Comment",
+              value: "```diff\n- " + cooldownMessage + "```", 
+            })
+              .setFooter({ text: 'Made By: LogicNovaX', iconURL: 'https://cdn.discordapp.com/avatars/1188106377428733992/0d32bcf3cb3c01a3a28ab82185920213.png?size=1024' });
+
+              return message.channel.send({ embeds: [embed] });
             } else {
               cooldownFunction();
             }
@@ -139,7 +171,8 @@ module.exports = {
 
         command.run(client, message, args);
       } catch (error) {
-        log(error, "err");
+        console.log(error);
+        log("err");
       }
     }
   },
