@@ -1,7 +1,7 @@
 module.exports = {
     client: {
-        bot_token: "Your Bot token (USE .env FOR SAFETY)",
-        id: "Your Bot ID (USE .env FOR SAFETY)",
+        bot_token: "Token Here (.env for Safety)",
+        id: "Bot-ID (.env for Safety)",
     },
     handler: {
         prefix: "?",
@@ -13,7 +13,7 @@ module.exports = {
             message: true,
         },
         mongodb: {
-            uri: "Your MongoDB URI string (USE .env FOR SAFETY)",
+            uri: "MongoDB URI (.env for Safety)",
             toggle: false,
         },
     },
@@ -21,7 +21,7 @@ module.exports = {
         developers: ["Your account ID"],
     },
     development: { 
-        enabled: true,
+        enabled: false,
         guild: "Enter your guild ID here or you can use .env",
     }, 
   messageSettings: {
