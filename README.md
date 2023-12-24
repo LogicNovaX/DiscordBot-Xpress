@@ -12,6 +12,19 @@
 - Example commands and events included as a starting point
 - Support for interacting with the Discord API using the powerful Discord.js library
 
+  ## Requirements
+### Packages:
+- **chalk** v2.4.2
+- **discord.js** v^14.13.0
+- **dotenv** v^latest
+- **mongoose** v^latest
+
+> **Warning**
+> Installing any version from the package `chalk` that is over **v2.4.2**, it will throw an error that you must enable ES6 modules, while this handler uses CommonJS modules.
+
+### Platforms:
+- **Node.js** v16.9.0 or newer
+
 ## Getting Started
 
 To get started with DiscordBot-Xpress, follow these steps:
