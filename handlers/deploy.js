@@ -9,7 +9,7 @@ const ExtendedClient = require("../class/ExtendedClient");
  */
 module.exports = async (client) => {
     const rest = new REST({ version: "10" }).setToken(
-        process.env.CLIENT_TOKEN || config.client.token
+        process.env.BOT_TOKEN || config.client.token
     );
 
     try {

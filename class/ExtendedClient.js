@@ -28,7 +28,6 @@ module.exports = class extends Client {
     start = async () => {
         commands(this);
         events(this);
-        components(this);
 
         if (config.handler.mongodb.toggle) mongoose();
 
